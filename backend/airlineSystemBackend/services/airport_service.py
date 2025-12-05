@@ -1,5 +1,6 @@
 from db import get_db
 
+# returns all airports
 def get_airports():
     db = get_db()
     cursor = db.cursor(dictionary=True)
@@ -9,7 +10,7 @@ def get_airports():
     db.close()
     return rows
 
-
+# adds new airport
 def add_airport(data):
     db = get_db()
     cursor = db.cursor()

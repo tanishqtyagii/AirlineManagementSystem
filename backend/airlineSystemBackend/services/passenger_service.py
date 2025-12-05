@@ -1,5 +1,6 @@
 from db import get_db
 
+# gets all passengers
 def get_passengers():
     db = get_db()
     cursor = db.cursor(dictionary=True)
@@ -9,7 +10,7 @@ def get_passengers():
     db.close()
     return rows
 
-
+# creates a passenger
 def create_passenger(data):
     db = get_db()
     cursor = db.cursor()
@@ -25,7 +26,7 @@ def create_passenger(data):
     db.close()
     return True
 
-
+# updates passenger info
 def update_passenger(passenger_id, data):
     db = get_db()
     cursor = db.cursor()
@@ -63,7 +64,7 @@ def update_passenger(passenger_id, data):
     db.close()
     return True
 
-
+# deletes a passenger
 def delete_passenger(passenger_id):
     db = get_db()
     cursor = db.cursor()

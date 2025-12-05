@@ -1,5 +1,6 @@
 from db import get_db
 
+# returns all posted flights
 def get_all_flights():
     db = get_db()
     cursor = db.cursor(dictionary=True)
@@ -9,6 +10,7 @@ def get_all_flights():
     db.close()
     return rows
 
+# posts flights by ids
 def get_flight_by_id(flight_id: int):
     db = get_db()
     cursor = db.cursor(dictionary=True)
@@ -43,6 +45,7 @@ def get_flights_by_departing_airport(airport_name: str):
     db.close()
     return rows
 
+# returns flights by their arriving airport and departing airport
 def get_flights_by_both(arrival_airport: str, departure_airport: str):
     db = get_db()
     cursor = db.cursor(dictionary=True)
@@ -58,7 +61,7 @@ def get_flights_by_both(arrival_airport: str, departure_airport: str):
     db.close()
     return rows
 
-
+# creates a new flight
 def create_flight(data):
     db = get_db()
     cursor = db.cursor()
@@ -79,6 +82,7 @@ def create_flight(data):
     db.close()
     return True
 
+# updates a flight record
 def update_flight(flight_id, data):
     db = get_db()
     cursor = db.cursor()
@@ -101,6 +105,7 @@ def update_flight(flight_id, data):
 
     return True
 
+# deletes a flight
 def delete_flight(flight_id: int):
     db = get_db()
     cursor = db.cursor()

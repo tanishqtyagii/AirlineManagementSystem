@@ -1,5 +1,6 @@
 from db import get_db
 
+# returns all bookings
 def get_bookings():
     db = get_db()
     cursor = db.cursor(dictionary=True)
@@ -21,7 +22,7 @@ def get_bookings():
     db.close()
     return rows
 
-
+# returns all bookings within a flight
 def get_bookings_by_flight(flight_id: int):
     db = get_db()
     cursor = db.cursor(dictionary=True)
@@ -43,7 +44,7 @@ def get_bookings_by_flight(flight_id: int):
     db.close()
     return rows
 
-
+# returns bookings a passenger has
 def get_bookings_by_passenger(passenger_id: int):
     db = get_db()
     cursor = db.cursor(dictionary=True)
@@ -68,6 +69,7 @@ def get_bookings_by_passenger(passenger_id: int):
     return rows
 
 
+# creates a new booking
 def create_booking(data):
     db = get_db()
     cursor = db.cursor()
@@ -96,7 +98,7 @@ def create_booking(data):
     db.close()
     return True
 
-
+# updates booking when admin changes are made
 def update_booking(booking_id: int, data):
     db = get_db()
     cursor = db.cursor()
@@ -130,7 +132,7 @@ def update_booking(booking_id: int, data):
     db.close()
     return True
 
-
+# deletes a booking and runs when a booking is deleted in admin
 def delete_booking(booking_id: int):
     db = get_db()
     cursor = db.cursor()

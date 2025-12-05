@@ -5,15 +5,18 @@ import services.passenger_service as service
 
 router = APIRouter(prefix="/passengers", tags=["Passengers"])
 
+# returns all passengers
 @router.get("/", response_model=List[Passenger])
 def get_passengers():
     return service.get_passengers()
 
+# creates a passenger
 @router.post("/")
 def create_passenger(data: PassengerCreate):
     service.create_passenger(data)
     return {"message": "Passenger created"}
 
+# puts passengers by their id
 @router.put("/{passenger_id}")
 def update_passenger(passenger_id: int, data: PassengerUpdate):
     updated = service.update_passenger(passenger_id, data)
@@ -21,6 +24,7 @@ def update_passenger(passenger_id: int, data: PassengerUpdate):
         raise HTTPException(status_code=404, detail="Passenger not found or nothing to update")
     return {"message": "Passenger updated"}
 
+# deletes passengers by id
 @router.delete("/{passenger_id}")
 def delete_passenger(passenger_id: int):
     deleted = service.delete_passenger(passenger_id)

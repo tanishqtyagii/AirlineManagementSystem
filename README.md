@@ -17,7 +17,7 @@ source venv/bin/activate # Mac
 pip install -r requirements.txt
 (also pip install whatever else is necessary if it comes up)
 
-3) Create a .env (NEVER COMMIT THIS .env FILE BACK TO GITHUB, ITS A SECURITY ISSUE)
+3) Create a .env
 cp .env.example .env
 (edit .env with your own MySQL password)
 
